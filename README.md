@@ -14,10 +14,16 @@ TEAM MEMBERS:
 Ben Mikailenko
 Roman
 
-CURRENT STATUS: DESIGN  
+CURRENT STATUS: Backend Implementation Phase 
 
-MINIMUM EXPECTATION:
-- Web application
-- Landing page to help user understand what the application is about
-- Multiple other pages
-- It has data to maintain/manipulate
+HOW TO RUN:
+
+	git clone https://github.com/bmikailenko/cs320finalproject
+	
+	navigate to the app folder
+
+	run npm install
+
+	run node index.js
+
+	go to localhost:3000
