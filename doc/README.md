@@ -14,7 +14,7 @@ TEAM MEMBERS:
 Ben Mikailenko
 Roman
 
-CURRENT STATUS: Backend Implementation Phase 
+CURRENT STATUS: Testing Phase 
 
 HOW TO RUN:
 
