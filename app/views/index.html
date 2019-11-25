@@ -3,7 +3,7 @@
   <!-- Bootstrap core CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css">
-
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.0.6/css/fileinput.min.css" media="all" rel="stylesheet" type="text/css">
 
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -67,47 +67,15 @@
             <div class="form-group">
               <div class="dates">
                 <label>Date</label>
-                <input type="text" class="form-control" data-provide="datepicker" data-date-format="mm-dd-yyyy" name="addDate" placeholder="mm-dd-yyyy">
+                <input type="text" class="form-control" data-provide="datepicker" data-date-format="mm-dd-yyyy" name="addDate" placeholder="mm-dd-yyyy" required="" autocomplete="off">
               </div>
             </div>
             <br>
             <!-- Uploading file(s) -->
             <div class="form-group">
               <label>Files</label>
-              <div class="input-group mb-3">
-                <!-- Pdf file #1 -->
-                <div class="custom-file">
-                  <input type="file" class="custom-file-input" id="pdfInput" name="pdfFile1">
-                  <label class="custom-file-label" for="pdfInput">Choose file</label>
-                </div>
-              </div>
-              <!-- Pdf file #2 -->
-              <div class="input-group mb-3">
-                <div class="custom-file">
-                  <input type="file" class="custom-file-input" id="pdfInput" name="pdfFile2">
-                  <label class="custom-file-label" for="pdfInput">Choose file</label>
-                </div>
-              </div>
-              <!-- Pdf file #3 -->
-              <div class="input-group mb-3">
-                <div class="custom-file">
-                  <input type="file" class="custom-file-input" id="pdfInput" name="pdfFile3">
-                  <label class="custom-file-label" for="pdfInput">Choose file</label>
-                </div>
-              </div>
-              <!-- Pdf file #4 -->
-              <div class="input-group mb-3">
-                <div class="custom-file">
-                  <input type="file" class="custom-file-input" id="pdfInput" name="pdfFile4">
-                  <label class="custom-file-label" for="pdfInput">Choose file</label>
-                </div>
-              </div>
-              <!-- Pdf file #5 -->
-              <div class="input-group mb-3">
-                <div class="custom-file">
-                  <input type="file" class="custom-file-input" id="pdfInput" name="pdfFile5">
-                  <label class="custom-file-label" for="pdfInput">Choose file</label>
-                </div>
+              <div>
+                <input id="pdfInput" name="pdfInput" type="file" class="file" multiple="" data-show-preview="false" allowedfiletypes="[pdf]">
               </div>
             </div>
           </div>
@@ -135,7 +103,7 @@
           <!-- Calendar drop down -->
           <div class="dates">
             Date
-            <input type="text" class="form-control" data-provide="datepicker" data-date-format="mm-dd-yyyy" name="deleteDate" placeholder="mm-dd-yyyy">
+            <input type="text" class="form-control" data-provide="datepicker" data-date-format="mm-dd-yyyy" name="deleteDate" placeholder="mm-dd-yyyy" autocomplete="off">
           </div>
         </div>
         <div class="modal-footer">
@@ -162,7 +130,7 @@
           <!-- Calendar drop down -->
           <div class="dates">
             Previous Date
-            <input type="text" class="form-control" data-provide="datepicker" data-date-format="mm-dd-yyyy" name="oldDate" placeholder="mm-dd-yyyy">
+            <input type="text" class="form-control" data-provide="datepicker" data-date-format="mm-dd-yyyy" name="oldDate" placeholder="mm-dd-yyyy" autocomplete="off">
           </div>
           <br>
           <div>
@@ -173,40 +141,8 @@
           <!-- Uploading file(s) -->
           <div class="form-group">
             <label>New Files</label>
-            <div class="input-group mb-3">
-              <!-- Pdf file #1 -->
-              <div class="custom-file">
-                <input type="file" class="custom-file-input" id="newPdfFile1" name="newPdfFile1">
-                <label class="custom-file-label" for="pdfInput">Choose file</label>
-              </div>
-            </div>
-            <!-- Pdf file #2 -->
-            <div class="input-group mb-3">
-              <div class="custom-file">
-                <input type="file" class="custom-file-input" id="pdfInput" name="pdfFile2">
-                <label class="custom-file-label" for="pdfInput">Choose file</label>
-              </div>
-            </div>
-            <!-- Pdf file #3 -->
-            <div class="input-group mb-3">
-              <div class="custom-file">
-                <input type="file" class="custom-file-input" id="pdfInput" name="pdfFile3">
-                <label class="custom-file-label" for="pdfInput">Choose file</label>
-              </div>
-            </div>
-            <!-- Pdf file #4 -->
-            <div class="input-group mb-3">
-              <div class="custom-file">
-                <input type="file" class="custom-file-input" id="pdfInput" name="pdfFile4">
-                <label class="custom-file-label" for="pdfInput">Choose file</label>
-              </div>
-            </div>
-            <!-- Pdf file #5 -->
-            <div class="input-group mb-3">
-              <div class="custom-file">
-                <input type="file" class="custom-file-input" id="pdfInput" name="pdfFile5">
-                <label class="custom-file-label" for="pdfInput">Choose file</label>
-              </div>
+            <div>
+              <input id="pdfInput" name="pdfInput" type="file" class="file" multiple="" data-show-preview="false" allowedfiletypes="[pdf]">
             </div>
           </div>
         </div>
@@ -220,14 +156,24 @@
   </div>
 
   <!-- Page Content -->
-  <div id="mainPage">
-  <div class="card" id="11-27-2019" style="width: 18rem; text-align: center; margin: 0 auto;"><div class="card-body"><h5 class="card-title">11-27-2019</h5><a href="./files/11-27-2019/1.jpg" download="">1.jpg</a></div></div></div>
-  
+  <div id="mainPage" style="margin-top: 20px;">
+  <div class="card bg-light mb-3" id="12-27-2019" style="width: 18rem; text-align: center; margin: 0 auto;"><div class="card-header">12-27-2019</div><div class="card-body"><a href="./files/12-27-2019/Every-Move-I-Make.pdf" download="">Every Move I Make.pdf</a><br><a href="./files/12-27-2019/Every-Move-I-Make.pdf" download="">Every-Move-I-Make.pdf</a><br><a href="./files/12-27-2019/First-Love-Chords---Antioch-College-Worship.pdf" download="">First Love Chords - Antioch College Worship.pdf</a><br><a href="./files/12-27-2019/First-Love-Chords---Antioch-College-Worship.pdf" download="">First-Love-Chords---Antioch-College-Worship.pdf</a><br></div></div><div class="card bg-light mb-3" id="11-29-2019" style="width: 18rem; text-align: center; margin: 0 auto;"><div class="card-header">11-29-2019</div><div class="card-body"><a href="./files/11-29-2019/Every-Move-I-Make.pdf" download="">Every Move I Make.pdf</a><br><a href="./files/11-29-2019/First-Love-Chords---Antioch-College-Worship.pdf" download="">First Love Chords - Antioch College Worship.pdf</a><br><a href="./files/11-29-2019/Good-Good-Father.pdf" download="">Good Good Father.pdf</a><br><a href="./files/11-29-2019/i_will_follow.pdf" download="">i_will_follow.pdf</a><br></div></div><div class="card bg-light mb-3" id="11-24-2019" style="width: 18rem; text-align: center; margin: 0 auto;"><div class="card-header">11-24-2019</div><div class="card-body"><a href="./files/11-24-2019/Every-Move-I-Make.pdf" download="">Every Move I Make.pdf</a><br><a href="./files/11-24-2019/First-Love-Chords---Antioch-College-Worship.pdf" download="">First Love Chords - Antioch College Worship.pdf</a><br><a href="./files/11-24-2019/Good-Good-Father.pdf" download="">Good Good Father.pdf</a><br></div></div></div>
+
+  <!-- Footer -->
+<footer class="page-footer font-small blue" style="margin-top: 20px;">
+  <!-- Copyright -->
+  <div class="footer-copyright text-center py-3">
+    © 2019 Copyright: R&amp;B
+  </div>
+</footer>
+
+
   <!-- Bootstrap Core Javascript -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" crossorigin="anonymous"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.0.6/js/fileinput.min.js"></script>
 
   <!-- Javascript for calendar -->
   <script>
@@ -246,6 +192,14 @@
     $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
   });
   </script>
+
+
+
+
+
+
+
+
 
 
 
