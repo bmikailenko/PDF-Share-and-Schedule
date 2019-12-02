@@ -62,7 +62,7 @@
         </div>
         <!-- Form in modal body -->
         <form ref="uploadForm" id="uploadForm" action="/upload" method="post" enctype="multipart/form-data">
-        <div class="modal-body">
+          <div class="modal-body">
             <!-- Calendar drop down -->
             <div class="form-group">
               <div class="dates">
@@ -99,18 +99,18 @@
           </button>
         </div>
         <form ref="deleteForm" id="deleteForm" action="/delete" method="post" enctype="multipart/form-data">
-        <div class="modal-body">
-          <!-- Calendar drop down -->
-          <div class="dates">
-            Date
-            <input type="text" class="form-control" data-provide="datepicker" data-date-format="mm-dd-yyyy" name="deleteDate" placeholder="mm-dd-yyyy" autocomplete="off">
+          <div class="modal-body">
+            <!-- Calendar drop down -->
+            <div class="dates">
+              Date
+              <input type="text" class="form-control" data-provide="datepicker" data-date-format="mm-dd-yyyy" name="deleteDate" placeholder="mm-dd-yyyy" autocomplete="off">
+            </div>
           </div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-          <button type="submit" id="deleteSumbit" value="submit" class="btn btn-primary">Submit</button>
-        </div>
-      </form>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+            <button type="submit" id="deleteSumbit" value="submit" class="btn btn-primary">Submit</button>
+          </div>
+        </form>
       </div>
     </div>
   </div>
@@ -126,46 +126,48 @@
           </button>
         </div>
         <form ref="editForm" id="editForm" action="/edit" method="post" enctype="multipart/form-data">
-        <div class="modal-body">
-          <!-- Calendar drop down -->
-          <div class="dates">
-            Previous Date
-            <input type="text" class="form-control" data-provide="datepicker" data-date-format="mm-dd-yyyy" name="oldDate" placeholder="mm-dd-yyyy" autocomplete="off">
-          </div>
-          <br>
-          <div>
-            New Date
-            <input type="text" class="form-control" data-provide="datepicker" data-date-format="mm-dd-yyyy" name="newDate" placeholder="mm-dd-yyyy">
-          </div>
-          <br>
-          <!-- Uploading file(s) -->
-          <div class="form-group">
-            <label>New Files</label>
+          <div class="modal-body">
+            <!-- Calendar drop down -->
+            <div class="dates">
+              Previous Date
+              <input type="text" class="form-control" data-provide="datepicker" data-date-format="mm-dd-yyyy" name="oldDate" placeholder="mm-dd-yyyy" autocomplete="off">
+            </div>
+            <br>
             <div>
-              <input id="pdfInput" name="pdfInput" type="file" class="file" multiple="" data-show-preview="false" allowedfiletypes="[pdf]">
+              New Date
+              <input type="text" class="form-control" data-provide="datepicker" data-date-format="mm-dd-yyyy" name="newDate" placeholder="mm-dd-yyyy" autocomplete="off">
+            </div>
+            <br>
+            <!-- Uploading file(s) -->
+            <div class="form-group">
+              <label>New Files</label>
+              <div>
+                <input id="pdfInput" name="pdfInput" type="file" class="file" multiple="" data-show-preview="false" allowedfiletypes="[pdf]">
+              </div>
             </div>
           </div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-          <button type="submit" id="editSumbit" value="submit" class="btn btn-primary">Submit</button>
-        </div>
-      </form>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+            <button type="submit" id="editSumbit" value="submit" class="btn btn-primary">Submit</button>
+          </div>
+        </form>
       </div>
     </div>
   </div>
 
   <!-- Page Content -->
   <div id="mainPage" style="margin-top: 20px;">
-  <div class="card bg-light mb-3" id="12-27-2019" style="width: 18rem; text-align: center; margin: 0 auto;"><div class="card-header">12-27-2019</div><div class="card-body"><a href="./files/12-27-2019/Every-Move-I-Make.pdf" download="">Every Move I Make.pdf</a><br><a href="./files/12-27-2019/Every-Move-I-Make.pdf" download="">Every-Move-I-Make.pdf</a><br><a href="./files/12-27-2019/First-Love-Chords---Antioch-College-Worship.pdf" download="">First Love Chords - Antioch College Worship.pdf</a><br><a href="./files/12-27-2019/First-Love-Chords---Antioch-College-Worship.pdf" download="">First-Love-Chords---Antioch-College-Worship.pdf</a><br></div></div><div class="card bg-light mb-3" id="11-29-2019" style="width: 18rem; text-align: center; margin: 0 auto;"><div class="card-header">11-29-2019</div><div class="card-body"><a href="./files/11-29-2019/Every-Move-I-Make.pdf" download="">Every Move I Make.pdf</a><br><a href="./files/11-29-2019/First-Love-Chords---Antioch-College-Worship.pdf" download="">First Love Chords - Antioch College Worship.pdf</a><br><a href="./files/11-29-2019/Good-Good-Father.pdf" download="">Good Good Father.pdf</a><br><a href="./files/11-29-2019/i_will_follow.pdf" download="">i_will_follow.pdf</a><br></div></div><div class="card bg-light mb-3" id="11-24-2019" style="width: 18rem; text-align: center; margin: 0 auto;"><div class="card-header">11-24-2019</div><div class="card-body"><a href="./files/11-24-2019/Every-Move-I-Make.pdf" download="">Every Move I Make.pdf</a><br><a href="./files/11-24-2019/First-Love-Chords---Antioch-College-Worship.pdf" download="">First Love Chords - Antioch College Worship.pdf</a><br><a href="./files/11-24-2019/Good-Good-Father.pdf" download="">Good Good Father.pdf</a><br></div></div></div>
+  <div class="card bg-light mb-3" id="12-08-2019" style="width: 18rem; text-align: center; margin: 0 auto;"><div class="card-header">12-08-2019</div><div class="card-body"><a href="./files/12-08-2019/Every-Move-I-Make.pdf" download="">Every Move I Make.pdf</a> <br><a href="./files/12-08-2019/Good-Good-Father.pdf" download="">Good Good Father.pdf</a> <br><a href="./files/12-08-2019/i_will_follow.pdf" download="">i_will_follow.pdf</a> <br></div></div><div class="card bg-light mb-3" id="12-15-2019" style="width: 18rem; text-align: center; margin: 0 auto;"><div class="card-header">12-15-2019</div><div class="card-body"><a href="./files/12-15-2019/Good-Good-Father.pdf" download="">Good Good Father.pdf</a> <br><a href="./files/12-15-2019/Turn-your-eyes-upon-Jesus.pdf" download="">Turn your eyes upon Jesus.pdf</a> <br></div></div><div class="card bg-light mb-3" id="12-22-2019" style="width: 18rem; text-align: center; margin: 0 auto;"><div class="card-header">12-22-2019</div><div class="card-body"><a href="./files/12-22-2019/Every-Move-I-Make.pdf" download="">Every Move I Make.pdf</a> <br><a href="./files/12-22-2019/i_will_follow.pdf" download="">i_will_follow.pdf</a> <br><a href="./files/12-22-2019/Turn-your-eyes-upon-Jesus.pdf" download="">Turn your eyes upon Jesus.pdf</a> <br></div></div><div class="card bg-light mb-3" id="12-25-2019" style="width: 18rem; text-align: center; margin: 0 auto;"><div class="card-header">12-25-2019</div><div class="card-body"><a href="./files/12-25-2019/Every-Move-I-Make.pdf" download="">Every Move I Make.pdf</a> <br><a href="./files/12-25-2019/Every-Move-I-Make.pdf" download="">Every-Move-I-Make.pdf</a> <br><a href="./files/12-25-2019/Good-Good-Father.pdf" download="">Good Good Father.pdf</a> <br><a href="./files/12-25-2019/Good-Good-Father.pdf" download="">Good-Good-Father.pdf</a> <br></div></div><div class="card bg-light mb-3" id="12-27-2019" style="width: 18rem; text-align: center; margin: 0 auto;"><div class="card-header">12-27-2019</div><div class="card-body"><a href="./files/12-27-2019/Every-Move-I-Make.pdf" download="">Every Move I Make.pdf</a> <br><a href="./files/12-27-2019/First-Love-Chords---Antioch-College-Worship.pdf" download="">First Love Chords - Antioch College Worship.pdf</a> <br></div></div><div class="card bg-light mb-3" id="12-29-2019" style="width: 18rem; text-align: center; margin: 0 auto;"><div class="card-header">12-29-2019</div><div class="card-body"><a href="./files/12-29-2019/Every-Move-I-Make.pdf" download="">Every Move I Make.pdf</a> <br><a href="./files/12-29-2019/First-Love-Chords---Antioch-College-Worship.pdf" download="">First Love Chords - Antioch College Worship.pdf</a> <br></div></div><div class="card bg-light mb-3" id="12-31-2019" style="width: 18rem; text-align: center; margin: 0 auto;"><div class="card-header">12-31-2019</div><div class="card-body"><a href="./files/12-31-2019/Good-Good-Father.pdf" download="">Good Good Father.pdf</a> <br></div></div></div>
+
+  
 
   <!-- Footer -->
-<footer class="page-footer font-small blue" style="margin-top: 20px;">
-  <!-- Copyright -->
-  <div class="footer-copyright text-center py-3">
-    © 2019 Copyright: R&amp;B
-  </div>
-</footer>
+  <footer class="page-footer font-small blue" style="margin-top: 20px;">
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3">
+      © 2019 Copyright: R&amp;B
+    </div>
+  </footer>
 
 
   <!-- Bootstrap Core Javascript -->
@@ -192,6 +194,9 @@
     $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
   });
   </script>
+
+
+
 
 
 

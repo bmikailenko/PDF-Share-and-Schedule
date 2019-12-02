@@ -35,48 +35,32 @@ app.post('/upload', function(req,res){
   if (!req.files || Object.keys(req.files).length === 0) {
     return res.redirect('/');
   }
-
-  // Save pdf file 1
-  if (req.files.pdfInput[0] != null){
-    var pdfFile1 = req.files.pdfInput[0];
-    pdfFile1.mv('./files/' + date + '/' + pdfFile1.name.replace(/\s+/g, '-'), function(err) { if (err) return res.status(500).send(err)});
-    var downloadLink1 = '<a href=' + ("./files/" + date + "/" + pdfFile1.name.replace(/\s+/g, '-')) + ' download>' + pdfFile1.name + '</a>';
-  }
-
-  // Save pdf file 2
-  if (req.files.pdfInput[1] != null){
-    var pdfFile2 = req.files.pdfInput[1];
-    pdfFile2.mv('./files/' + date + '/' + pdfFile2.name.replace(/\s+/g, '-'), function(err) { if (err) return res.status(500).send(err)});
-    var downloadLink2 = '<a href=' + ("./files/" + date + "/" + pdfFile2.name.replace(/\s+/g, '-')) + ' download>' + pdfFile2.name + '</a>';
-  }
-
-  // Save pdf file 3
-  if (req.files.pdfInput[2] != null) {
-    var pdfFile3 = req.files.pdfInput[2];
-    pdfFile3.mv('./files/' + date + '/' + pdfFile3.name.replace(/\s+/g, '-'), function(err) { if (err) return res.status(500).send(err)});
-    var downloadLink3 = '<a href=' + ("./files/" + date + "/" + pdfFile3.name.replace(/\s+/g, '-')) + ' download>' + pdfFile3.name + '</a>';
-  }
-
-  // Save pdf file 4
-  if (req.files.pdfInput[3] != null) {
-    var pdfFile4 = req.files.pdfInput[3];
-    pdfFile4.mv('./files/' + date + '/' + pdfFile4.name.replace(/\s+/g, '-'), function(err) { if (err) return res.status(500).send(err)});
-    var downloadLink4 = '<a href=' + ("./files/" + date + "/" + pdfFile4.name.replace(/\s+/g, '-')) + ' download>' + pdfFile4.name + '</a>';
-  }
-
-  // Save pdf file 5
-  if (req.files.pdfInput[4] != null) {
-    var pdfFile5 = req.files.pdfInput[4];
-    pdfFile5.mv('./files/' + date + '/' + pdfFile5.name.replace(/\s+/g, '-'), function(err) { if (err) return res.status(500).send(err)});
-    var downloadLink5 = '<a href=' + ("./files/" + date + "/" + pdfFile5.name.replace(/\s+/g, '-')) + ' download>' + pdfFile5.name + '</a>';
-  }
-
+  // list of download links
   var downloadLinkList = [];
-  if (downloadLink1 !== undefined) downloadLinkList.push(downloadLink1 + "<br>");
-  if (downloadLink2 !== undefined) downloadLinkList.push(downloadLink2 + "<br>");
-  if (downloadLink3 !== undefined) downloadLinkList.push(downloadLink3 + "<br>");
-  if (downloadLink4 !== undefined) downloadLinkList.push(downloadLink4 + "<br>");
-  if (downloadLink5 !== undefined) downloadLinkList.push(downloadLink5 + "<br>");
+
+  // for each file
+  if (req.files.pdfInput.constructor === Array) {
+    req.files.pdfInput.forEach(function(item, index) {
+
+      // save the file to it's directory
+      item.mv('./files/' + date + '/' + item.name.replace(/\s+/g, '-'), function(err) { if (err) return res.status(500).send(err)});
+
+      // create a download link
+      var downloadLink = '<a href=' + ("./files/" + date + "/" + item.name.replace(/\s+/g, '-')) + ' download>' + item.name + '</a> <br>'
+
+      // and push it to the list of download links
+      downloadLinkList.push(downloadLink);
+    });
+  } else {
+    item = req.files.pdfInput;
+    item.mv('./files/' + date + '/' + item.name.replace(/\s+/g, '-'), function(err) { if (err) return res.status(500).send(err)});
+
+    // create a download link
+    var downloadLink = '<a href=' + ("./files/" + date + "/" + item.name.replace(/\s+/g, '-')) + ' download>' + item.name + '</a> <br>'
+
+    // and push it to the list of download links
+    downloadLinkList.push(downloadLink);
+  }
 
   // entry to main page
   var card = '<div class="card bg-light mb-3" id=\"' + date +'\" style="width: 18rem; text-align: center; margin: 0 auto;">' +
@@ -92,6 +76,8 @@ app.post('/upload', function(req,res){
   fs.readFile(__dirname + '/views/index.html', 'utf8', (err, data) => {
     const dom = new jsdom.JSDOM(data);
     const $ = jquery(dom.window);
+
+    // write new date
     var content = $('#mainPage').html();
     $('#mainPage').html(content + card);
 
@@ -101,7 +87,7 @@ app.post('/upload', function(req,res){
     dates.sort(function(a, b) {
       var compA = $(a).attr('id').toUpperCase();
       var compB = $(b).attr('id').toUpperCase();
-      return (compA > compB) ? -1 : (compA < compB) ? 1 : 0;
+      return (compA < compB) ? -1 : (compA > compB) ? 1 : 0;
     })
     $.each(dates, function(idx, itm) {
       mainPage.append(itm);
@@ -112,7 +98,6 @@ app.post('/upload', function(req,res){
     });
   });
 
-  // redirect to home page
   res.redirect('/');
 
 });
@@ -124,13 +109,11 @@ app.post('/delete', function(req,res){
   var date = req.body.deleteDate;
 
   // delete folder from date input
-  // if (!fs.existsSync('./files/' + date)){
-  //   console.log("exists!!!");
-  //   del.sync('./files/' + date);
-  // }
+  if (!fs.existsSync('../files/' + date)){
+    del.sync('./files/' + date);
+  }
 
-
-  // write new entry to main page
+  // remove entry from main page
   fs.readFile(__dirname + '/views/index.html', 'utf8', (err, data) => {
     const dom = new jsdom.JSDOM(data);
     const $ = jquery(dom.window);
@@ -156,12 +139,37 @@ app.post('/edit', function(req,res){
     fs.mkdirSync('./files/' + newDate);
   }
 
-  // Save pdf file 1
-  var newPdfFile1 = req.files.pdfInput[0];
-  newPdfFile1.mv('./files/' + newDate + '/' + newPdfFile1.name, function(err) { if (err) return res.status(500).send(err)});
+  // if no uploaded files just redirect to home
+  if (!req.files || Object.keys(req.files).length === 0) {
+    return res.redirect('/');
+  }
 
-  // link to download file
-  var downloadLink = '<a href=' + ("./files/" + newDate + "/" + newPdfFile1.name) + '>' + newPdfFile1.name + '</a>';
+  // list of download links
+  var downloadLinkList = [];
+
+  if (req.files.pdfInput.constructor === Array) {
+    // for each file
+    req.files.pdfInput.forEach(function(item, index) {
+
+      // save the file to it's directory
+      item.mv('./files/' + newDate + '/' + item.name.replace(/\s+/g, '-'), function(err) { if (err) return res.status(500).send(err)});
+
+      // create a download link
+      var downloadLink = '<a href=' + ("./files/" + newDate + "/" + item.name.replace(/\s+/g, '-')) + ' download>' + item.name + '</a> <br>'
+
+      // and push it to the list of download links
+      downloadLinkList.push(downloadLink);
+    });
+  } else {
+    item = req.files.pdfInput;
+    item.mv('./files/' + newDate + '/' + item.name.replace(/\s+/g, '-'), function(err) { if (err) return res.status(500).send(err)});
+
+    // create a download link
+    var downloadLink = '<a href=' + ("./files/" + newDate + "/" + item.name.replace(/\s+/g, '-')) + ' download>' + item.name + '</a> <br>'
+
+    // and push it to the list of download links
+    downloadLinkList.push(downloadLink);
+  }
 
   // entry to main page
   var card = '<div class="card bg-light mb-3" id=\"' + newDate +'\" style="width: 18rem; text-align: center; margin: 0 auto;">' +
@@ -169,7 +177,7 @@ app.post('/edit', function(req,res){
   newDate +
   '</div>' +
   '<div class="card-body">' +
-  downloadLink +
+  downloadLinkList.join("") +
   '</div>' +
   '</div>';
 
@@ -177,9 +185,27 @@ app.post('/edit', function(req,res){
   fs.readFile(__dirname + '/views/index.html', 'utf8', (err, data) => {
     const dom = new jsdom.JSDOM(data);
     const $ = jquery(dom.window);
+
+    // remove old date
     $('#' + oldDate).remove();
+
+    // write new date
     var content = $('#mainPage').html();
     $('#mainPage').html(content + card);
+
+    // organize
+    var mainPage = $('#mainPage');
+    var dates = mainPage.children('div').get();
+    dates.sort(function(a, b) {
+      var compA = $(a).attr('id').toUpperCase();
+      var compB = $(b).attr('id').toUpperCase();
+      return (compA < compB) ? -1 : (compA > compB) ? 1 : 0;
+    })
+    $.each(dates, function(idx, itm) {
+      mainPage.append(itm);
+    })
+
+    // write
     fs.writeFile(__dirname + '/views/index.html', dom.serialize(), err => {
     });
   });
