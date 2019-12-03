@@ -35,6 +35,7 @@ app.post('/upload', function(req,res){
   if (!req.files || Object.keys(req.files).length === 0) {
     return res.redirect('/');
   }
+  
   // list of download links
   var downloadLinkList = [];
 
